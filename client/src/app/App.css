@@ -1,0 +1,496 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: rgb(253, 253, 253);
+}
+/* start navbar */
+
+.navbar {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.navbar .wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 40px rgb(0 0 0 / 5%);
+}
+
+.navbar .icon {
+  margin-right: 10px;
+  color: #333;
+  font-size: 30px;
+}
+
+.navbar .logo {
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+
+/* start container */
+
+.container-home {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+  flex-direction: row;
+  box-shadow: 0px 5px 40px rgb(0 0 0 / 15%);
+  background-color: rgb(253, 253, 253);
+}
+
+/* start left-bar */
+
+.left-bar {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+  color: #ddd;
+  padding: 2rem 15px;
+}
+
+.left-bar .parent-user {
+  width: 100%;
+  border-bottom: 1px dashed rgb(161, 108, 39);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.left-bar .username {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.left-bar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-bar ul > li {
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  /* letter-spacing: 1px; */
+  border-left: 2px solid transparent;
+  align-items: center;
+  padding: 5px;
+}
+
+.left-bar li.active {
+  transition: all ease 0.4s;
+  background-color: #111;
+  border-radius: 0px 5px 5px 0;
+  border-left: 2px solid rgb(161, 108, 39);
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.left-bar ul .icon {
+  margin-right: 7px;
+}
+
+.left-bar .person {
+  font-size: 14px;
+  display: block;
+  color: rgb(126, 120, 133);
+  margin: 0 10px;
+  margin-bottom: 10px;
+}
+
+/* start right-bar */
+
+.right-bar {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: white;
+}
+
+.page {
+  transition: all ease-in-out 1s;
+}
+
+.page .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page form {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  width: 90%;
+}
+
+.page .item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.page label {
+  margin-bottom: 7px;
+  font-size: 14px;
+  color: rgb(190, 15, 15);
+}
+
+.page input {
+  padding: 7px;
+  border-radius: 3px;
+  font-size: 15px;
+  border: 2px solid #ddd;
+  color: #222;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.page form textarea {
+  max-width: 100%;
+  height: 70px;
+  max-height: 250px;
+  padding: 5px;
+}
+
+.page form .picture {
+  max-width: 100%;
+}
+
+.page input:focus {
+  box-shadow: 0px 5px 40px rgb(0 0 0 / 5%);
+  outline: none;
+}
+
+.page .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page .buttons button {
+  border: none;
+  background-color: transparent;
+}
+
+.page .buttons .submit {
+  background-color: #333;
+  padding: 6px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 3px;
+  margin-bottom: 3px;
+  color: white;
+  transition: all ease-in-out 0.3s;
+}
+
+.page .buttons .submit:hover {
+  letter-spacing: 2px;
+}
+
+.page .icon {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+}
+
+.page .icon:hover {
+  transform: scale(1.1);
+}
+
+.page .error-format {
+  transition: all ease-in-out 1s;
+  opacity: 0;
+  width: 90%;
+}
+
+.page .error-format.active {
+  transition: all ease-in-out 0.5s;
+  color: rgb(197, 10, 10);
+  display: block;
+  opacity: 1;
+  width: 90%;
+}
+
+/* start resume */
+
+.parent {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0px 5px 40px rgb(0 0 0 / 60%);
+  font-size: 13px;
+  border-radius: 10px;
+  background-color: #111;
+  color: #ddd;
+  width: 100%;
+}
+
+.resume .wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0;
+}
+
+.resume.white {
+  background-color: rgb(245, 245, 245);
+  color: #333;
+}
+.resume.mix {
+  background-color: rgb(102, 22, 22);
+  color: #ddd;
+}
+.resume.white {
+  background-color: rgb(245, 245, 245);
+  color: #333;
+}
+.resume .loading {
+  padding: 0 1rem;
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.resume .top-bar-resume .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.resume .top-bar-resume .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resume .top-bar-resume .image {
+  margin: 10px 20px;
+}
+
+.resume .top-bar-resume .image img {
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  width: 80px;
+  border: 2px solid red;
+}
+.resume .top-bar-resume .fullName {
+  font-size: 19px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.resume .top-bar-resume .jobTitle {
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.resume .left-bar-resume {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
+  width: 30%;
+}
+
+.resume .skills {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.resume .skills h3 {
+  margin-bottom: 7px;
+}
+
+.resume .skills .skill {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.resume .skills .skill .text {
+  text-transform: capitalize;
+}
+
+.resume .skills .skill .exp {
+  text-transform: capitalize;
+}
+
+.resume .location {
+  margin-bottom: 1rem;
+}
+
+.resume .location h3 {
+  margin-bottom: 7px;
+  text-transform: capitalize;
+}
+
+.resume .location .residential {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume .location .residential span,
+.resume .contact-me .contact span {
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.resume .contact-me h3 {
+  margin-bottom: 7px;
+}
+
+.resume .contact-me .contact {
+  display: flex;
+  flex-direction: column;
+}
+
+/* resume rigth bar */
+
+.right-bar-resume {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  flex-flow: wrap-reverse;
+  position: relative;
+}
+
+.right-bar-resume .item {
+  margin: 0 2rem;
+  margin-bottom: 3rem;
+}
+
+.right-bar-resume .item h3 {
+  margin-bottom: 7px;
+}
+
+.right-bar-resume .colors {
+  display: flex;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+}
+
+.right-bar-resume .color {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.right-bar-resume .white {
+  background-color: white;
+  margin-left: 10px;
+}
+
+.right-bar-resume .mix {
+  background-color: rgb(102, 22, 22);
+}
+
+.right-bar-resume .balck {
+  background-color: #000;
+  margin-left: 10px;
+}
+
+/* start media */
+@media (max-width: 500px) {
+  .left-bar {
+    font-size: 14px;
+  }
+
+  .navbar .logo {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 1300px) {
+  .container-home {
+    width: 60%;
+  }
+  .right-bar {
+    padding: 0;
+  }
+  .left-bar {
+    width: 40%;
+  }
+  .navbar {
+    margin: 1rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .navbar {
+    margin: 1rem;
+  }
+  .right-bar {
+    padding: 0;
+    width: 65%;
+  }
+  .container-home {
+    width: 50%;
+  }
+  .left-bar {
+    width: 35%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .parent {
+    width: 60%;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  .resume {
+    padding: 2rem;
+    font-size: 16px;
+  }
+  .left-bar-resume {
+    width: 50%;
+  }
+  .right-bar-resume {
+    width: 50%;
+  }
+}
