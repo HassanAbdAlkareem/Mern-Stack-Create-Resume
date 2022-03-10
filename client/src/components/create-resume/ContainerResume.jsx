@@ -5,25 +5,18 @@ import { getResume } from "../../redux/resumeSlice";
 import LeftBarResume from "./LeftBarResume";
 import RightBarResume from "./RightBarResume";
 import TopBarRusme from "./TopBarRusme";
-import { storeAlContext } from "../../Context/FunctionAlContext";
 
 const Resume = () => {
-  const { errorReload } = useContext(storeAlContext);
   const dispatch = useDispatch();
-  const history = useHistory();
   const [className, setClassName] = useState("resume");
   const { resume, loading, error } = useSelector((state) => state.resume);
+  const history = useHistory();
 
   //P
 
-  errorReload === true &&
-    setTimeout(() => {
-      window.location.reload();
-    }, [2000]);
-  //
   useEffect(() => {
     dispatch(getResume(history.location.state));
-  }, [dispatch, history.location.state]);
+  }, [dispatch]);
 
   return (
     <div className="parent">

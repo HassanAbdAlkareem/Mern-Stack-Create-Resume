@@ -4,14 +4,11 @@ import { ArrowBack } from "@material-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createResume } from "../redux/resumeSlice";
-import { useHistory } from "react-router-dom";
-import { storeAlContext } from "../Context/FunctionAlContext";
+import { Link, useHistory } from "react-router-dom";
 
 const Page5 = ({ handleChange, previousPage, infoResume }) => {
   const [error, setError] = useState(null);
-  const { setErrorReload } = useContext(storeAlContext);
   const dispatch = useDispatch();
-  const history = useHistory();
   //
 
   const handleClick = (e) => {
@@ -19,8 +16,6 @@ const Page5 = ({ handleChange, previousPage, infoResume }) => {
     const data = FormatData(infoResume);
     if (data !== "error") {
       dispatch(createResume(data));
-      history.push("/resume", data.fullName);
-      setErrorReload(true);
       setError(false);
     } else {
       setError(true);
@@ -55,9 +50,18 @@ const Page5 = ({ handleChange, previousPage, infoResume }) => {
             <button>
               <ArrowBack onClick={() => previousPage()} className="icon" />
             </button>
+
             <button className="submit" type="submit">
               Finish
             </button>
+            {error === false && (
+              <Link
+                style={{ textDecoration: "none" }}
+                to={{ pathname: "/resume", state: infoResume.fullName }}
+              >
+                Go
+              </Link>
+            )}
           </div>
         </form>
         <p className={error ? "error-format active" : "error-format"}>

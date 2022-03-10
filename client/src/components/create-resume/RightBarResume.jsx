@@ -33,7 +33,7 @@ const RightBarResume = ({ resume, setClassName }) => {
       {resume?.aboutYou && (
         <div className="item about-you">
           <h3>About You</h3>
-          <span className="text">{resume?.aboutYou}</span>
+          <span className="text">{resume.aboutYou}</span>
         </div>
       )}
 
@@ -44,7 +44,7 @@ const RightBarResume = ({ resume, setClassName }) => {
         </div>
       )}
 
-      {resume.projects && (
+      {resume?.projects && (
         <div className="item projects">
           <h3>Url Projects</h3>
           <span className="text">{resume.projects}</span>

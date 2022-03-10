@@ -19,13 +19,13 @@ const FormatDate = (infoResume) => {
   };
 
   if (
-    newData.fullName === ""
-    // newData.jobTitle === "" ||
-    // newData.address.city === "" ||
-    // newData.address.country === "" ||
-    // newData.skills.length === 0 ||
-    // newData.email === "" ||
-    // newData.number === ""
+    newData.fullName === "" ||
+    newData.jobTitle === "" ||
+    newData.address.city === "" ||
+    newData.address.country === "" ||
+    newData.skills.length === 0 ||
+    newData.email === "" ||
+    newData.number === ""
   ) {
     return "error";
   } else {

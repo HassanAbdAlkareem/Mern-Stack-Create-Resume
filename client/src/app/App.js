@@ -10,14 +10,12 @@ function App() {
     <div className="app">
       <FunctionAlContext>
         <Router>
-          <Switch>
-            <Route exact path="/">
-              <ContainerHome />
-            </Route>
-            <Route exact path="/resume">
-              <Resume />
-            </Route>
-          </Switch>
+          <Route exact path="/">
+            <ContainerHome />
+          </Route>
+          <Route path="/resume">
+            <Resume />
+          </Route>
         </Router>
       </FunctionAlContext>
     </div>

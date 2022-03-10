@@ -6,7 +6,7 @@ const TopBarRusme = ({ resume }) => {
     <div className="top-bar-resume">
       <div className="wrapper">
         <div className="info">
-          <span className="fullName">{resume.fullName}</span>
+          <span className="fullName">{resume?.fullName}</span>
           <span className="jobTitle">Job Title - {resume?.jobTitle}</span>
           <span className="birthday">Birthday - {resume?.birthday}</span>
         </div>

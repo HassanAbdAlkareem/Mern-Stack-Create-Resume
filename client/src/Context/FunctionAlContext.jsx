@@ -6,9 +6,7 @@ export const storeAlContext = createContext();
 
 const FunctionAlContext = ({ children }) => {
   const [index, setIndex] = useState(1);
-  const [errorReload, setErrorReload] = useState(false);
 
-  console.log(errorReload);
   const [infoResume, setInfoResume] = useState({
     fullName: "",
     jobTitle: "",
@@ -43,8 +41,6 @@ const FunctionAlContext = ({ children }) => {
         setInfoResume,
         handleChange,
         previousPage,
-        errorReload,
-        setErrorReload,
       }}
     >
       {children}
