@@ -4,11 +4,8 @@ import Resume from "../components/create-resume/ContainerResume";
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function App() {
-  const { resume } = useSelector((state) => state.resume);
-
   return (
     <div className="app">
       <FunctionAlContext>
@@ -18,7 +15,7 @@ function App() {
               <ContainerHome />
             </Route>
             <Route exact path="/resume">
-              {resume ? <Resume /> : <ContainerHome />}
+              <Resume />
             </Route>
           </Switch>
         </Router>

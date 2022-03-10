@@ -287,6 +287,11 @@ body {
   display: flex;
   align-items: center;
 }
+.resume .get-info {
+  background-color: #ddd;
+  border: none;
+  padding: 4px 8px;
+}
 
 .resume .top-bar-resume .wrapper {
   display: flex;

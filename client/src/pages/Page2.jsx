@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { ArrowForward, ArrowBack } from "@material-ui/icons";
+import { ArrowBack } from "@material-ui/icons";
 
 const Page2 = ({ previousPage, handleChange, setIndex, infoResume }) => {
   //

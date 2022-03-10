@@ -5,23 +5,31 @@ import axios from "axios";
 export const createResume = createAsyncThunk(
   "resume/createResume",
   async (data, thunk_API) => {
+    console.log(data);
     const { rejectWithValue } = thunk_API;
+    console.log("post", data);
     try {
-      const res = await axios.post("http://localhost:5000/api/resume", data);
+      const res = await axios.post(
+        "https://create-resume-now.herokuapp.com/api/resume",
+        data
+      );
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);
     }
   }
 );
-
 // get Resume
 export const getResume = createAsyncThunk(
   "resume/getResume",
   async (data, thunk_API) => {
+    console.log(data);
     const { rejectWithValue } = thunk_API;
     try {
-      const res = await axios.get("http://localhost:5000/api/resume/" + data);
+      const res = await axios.get(
+        "https://create-resume-now.herokuapp.com/api/resume/" + data
+      );
+      console.log("get", res.data);
       return res.data;
     } catch (error) {
       rejectWithValue(error.message);

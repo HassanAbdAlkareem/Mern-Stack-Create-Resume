@@ -1,5 +1,3 @@
-import { ArrowForward } from "@material-ui/icons";
-
 //
 const Page1 = ({ handleChange, setIndex, infoResume }) => {
   //

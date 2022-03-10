@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import FormatData from "./FormatData";
 import { ArrowBack } from "@material-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createResume } from "../redux/resumeSlice";
 import { useHistory } from "react-router-dom";
+import { storeAlContext } from "../Context/FunctionAlContext";
 
 const Page5 = ({ handleChange, previousPage, infoResume }) => {
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
+  const { setErrorReload } = useContext(storeAlContext);
   const dispatch = useDispatch();
   const history = useHistory();
   //
@@ -17,8 +19,8 @@ const Page5 = ({ handleChange, previousPage, infoResume }) => {
     const data = FormatData(infoResume);
     if (data !== "error") {
       dispatch(createResume(data));
-      history.push("/resume", data?.fullName);
-      window.location.reload();
+      history.push("/resume", data.fullName);
+      setErrorReload(true);
       setError(false);
     } else {
       setError(true);

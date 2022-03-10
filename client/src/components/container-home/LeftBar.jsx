@@ -8,7 +8,7 @@ const LeftBar = () => {
   return (
     <div className="left-bar">
       <div className="parent-user">
-        <h4 className="username">- Welcome Hassan</h4>
+        <h4 className="username">- Welcome </h4>
       </div>
       <span className="person">PERSONAL</span>
       <ul>
