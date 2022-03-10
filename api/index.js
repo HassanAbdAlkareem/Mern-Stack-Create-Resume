@@ -2,24 +2,20 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv");
-
 const cors = require("cors");
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
 
 // middle ware
+app.use(cors());
 dotenv.config();
 app.use(express.json());
-app.use(cors(corsOptions));
 
 // my routes
 const routerResume = require("./routes/Resume");
 
 mongoose
-  .connect(process.env.URL_MONGO)
+  .connect(
+    "mongodb+srv://hassan:hassan1234@hassanrusme.qvcid.mongodb.net/createRuems?retryWrites=true&w=majority"
+  )
   .then(() => console.log("db is runinng"))
   .catch((error) => console.log("Some thing is wrong" + error));
 //
