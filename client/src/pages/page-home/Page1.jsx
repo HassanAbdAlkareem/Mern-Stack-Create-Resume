@@ -1,5 +1,5 @@
 //
-const Page1 = ({ handleChange, setIndex, infoResume }) => {
+const Page1 = ({ handleChange, setIndex, infoResume, setInfoResume }) => {
   //
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,18 +10,31 @@ const Page1 = ({ handleChange, setIndex, infoResume }) => {
   return (
     <div className="page">
       <div className="wrapper">
-        <form onSubmit={handleSubmit} action="">
+        <form encType="multipart/form-data" onSubmit={handleSubmit} action="">
           <div className="item">
             <label>Full Name *</label>
             <input
               name="fullName"
               placeholder="Example / Hassan abd alkaeem"
               type="text"
-              required
               onChange={handleChange}
               value={infoResume.fullName}
+              required
             />
           </div>
+
+          <div className="item">
+            <label>Birthday </label>
+            <input
+              required
+              name="birthday"
+              placeholder="Example : 2000/1/1"
+              type="date"
+              onChange={handleChange}
+              value={infoResume.birthday}
+            />
+          </div>
+
           <div className="item">
             <label>Job Title *</label>
             <input
@@ -33,16 +46,11 @@ const Page1 = ({ handleChange, setIndex, infoResume }) => {
               value={infoResume.jobTitle}
             />
           </div>
-          <div className="item">
-            <label>Birthday </label>
-            <input
-              name="birthday"
-              placeholder="Example : 2000/1/1"
-              type="date"
-              onChange={handleChange}
-              value={infoResume.birthday}
-            />
-          </div>
+
+          <p className="note">
+            Note : this mark <b>*</b> means that the field is required
+          </p>
+
           <div className="buttons">
             <button className="submit" type="submit">
               Submit

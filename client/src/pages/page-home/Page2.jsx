@@ -23,7 +23,7 @@ const Page2 = ({ previousPage, handleChange, setIndex, infoResume }) => {
             />
           </div>
           <div className="item">
-            <label>City*</label>
+            <label>City *</label>
             <input
               required
               onChange={handleChange}

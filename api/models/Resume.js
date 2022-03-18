@@ -2,11 +2,13 @@ const mongoose = require("mongoose");
 
 const resumeSchema = new mongoose.Schema(
   {
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     fullName: { type: String },
     jobTitle: { type: String },
     birthday: { type: String },
     aboutYou: { type: String },
-    projects: { type: String },
+    // picture: { type: String },
+    url: { type: String },
     address: {
       country: { type: String },
       city: { type: String },

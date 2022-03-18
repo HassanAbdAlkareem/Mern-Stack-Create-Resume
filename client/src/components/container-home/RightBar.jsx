@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Page1 from "../../pages/Page1";
-import Page2 from "../../pages/Page2";
-import Page3 from "../../pages/Page3";
-import Page4 from "../../pages/Page4";
-import Page5 from "../../pages/Page5";
+import Page1 from "../../pages/page-home/Page1";
+import Page2 from "../../pages/page-home/Page2";
+import Page3 from "../../pages/page-home/Page3";
+import Page4 from "../../pages/page-home/Page4";
+import Page5 from "../../pages/page-home/Page5";
 import { storeAlContext } from "../../Context/FunctionAlContext";
 
 const RightBar = () => {
@@ -23,6 +23,7 @@ const RightBar = () => {
           setIndex={setIndex}
           handleChange={handleChange}
           infoResume={infoResume}
+          setInfoResume={setInfoResume}
         />
       ) : index === 2 ? (
         <Page2

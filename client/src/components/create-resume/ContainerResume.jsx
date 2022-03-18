@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { getResume } from "../../redux/resumeSlice";
 import LeftBarResume from "./LeftBarResume";
 import RightBarResume from "./RightBarResume";
@@ -10,12 +9,11 @@ const Resume = () => {
   const dispatch = useDispatch();
   const [className, setClassName] = useState("resume");
   const { resume, loading, error } = useSelector((state) => state.resume);
-  const history = useHistory();
 
-  //P
+  //
 
   useEffect(() => {
-    dispatch(getResume(history.location.state));
+    dispatch(getResume());
   }, [dispatch]);
 
   return (

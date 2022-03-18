@@ -18,8 +18,7 @@ const FunctionAlContext = ({ children }) => {
     number: "",
     skills: [],
     aboutYou: "",
-    projects: "",
-    picture: "",
+    url: "",
     workBefore: "",
   });
 

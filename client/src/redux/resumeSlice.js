@@ -4,40 +4,45 @@ import axios from "axios";
 // create resume
 export const createResume = createAsyncThunk(
   "resume/createResume",
-  async (data, thunk_API) => {
-    const { rejectWithValue } = thunk_API;
+  async (data, thunkAPI) => {
+    const { rejectWithValue, getState } = thunkAPI;
+    const { user } = getState();
+    //
     try {
       const res = await axios.post(
-        "https://create-resume-now.herokuapp.com/api/resume",
+        "https://create-resume-now.herokuapp.com/api/resume/" + user.user._id,
         data
       );
       return res.data;
     } catch (error) {
-      rejectWithValue(error.message);
+      return rejectWithValue(error);
     }
   }
 );
-// get Resume
+// get resume
 export const getResume = createAsyncThunk(
   "resume/getResume",
-  async (data, thunk_API) => {
-    const { rejectWithValue } = thunk_API;
+  async (data, thunkAPI) => {
+    const { rejectWithValue, getState } = thunkAPI;
+    const { user } = getState();
     try {
       const res = await axios.get(
-        "https://create-resume-now.herokuapp.com/api/resume/" + data
+        "https://create-resume-now.herokuapp.com/api/resume/" + user.user._id
       );
       return res.data;
     } catch (error) {
-      rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
   }
 );
-//
+
+// reducer resume
 const resumeSlice = createSlice({
   name: "resume",
   initialState: { error: false, loading: false, resume: {} },
   reducers: {},
   extraReducers: {
+    // Create
     [createResume.pending]: (state, action) => {
       state.loading = true;
       state.error = false;
@@ -50,6 +55,7 @@ const resumeSlice = createSlice({
       state.loading = false;
       state.error = true;
     },
+    // get
     [getResume.pending]: (state, action) => {
       state.loading = true;
       state.error = false;

@@ -12,7 +12,7 @@ const FormatDate = (infoResume) => {
     email: infoResume.email,
     number: infoResume.number,
     aboutYou: infoResume.aboutYou,
-    projects: infoResume.projects,
+    url: infoResume.url,
     workBefore: infoResume.workBefore,
     address: address,
     skills: infoResume.skills,
@@ -20,6 +20,7 @@ const FormatDate = (infoResume) => {
 
   if (
     newData.fullName === "" ||
+    newData.birthday === "" ||
     newData.jobTitle === "" ||
     newData.address.city === "" ||
     newData.address.country === "" ||
@@ -34,7 +35,3 @@ const FormatDate = (infoResume) => {
 };
 
 export default FormatDate;
-
-// //filter(
-//   (skill) => skill.skill !== undefined && skill.exp !== undefined
-//   ),

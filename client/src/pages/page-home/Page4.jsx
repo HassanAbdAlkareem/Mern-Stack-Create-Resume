@@ -13,12 +13,13 @@ const Page4 = ({ handleChange, previousPage, setIndex, infoResume }) => {
       <div className="wrapper">
         <form onSubmit={handleClick} action="">
           <div className="item">
-            <label>URL Projects </label>
+            <label>URL </label>
             <input
               onChange={handleChange}
-              name="projects"
+              name="url"
               type="text"
-              value={infoResume.projects}
+              value={infoResume.url}
+              placeholder="Link For Your Work"
             />
           </div>
           <div className="item">

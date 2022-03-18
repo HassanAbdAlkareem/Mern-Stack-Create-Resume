@@ -1,7 +1,8 @@
 import React from "react";
-import imgResume from "../../image/download.png";
+import imgResume from "../../image/images-resume.png";
 
 const TopBarRusme = ({ resume }) => {
+  const PF = "https://create-resume-now.herokuapp.com/images/";
   return (
     <div className="top-bar-resume">
       <div className="wrapper">
@@ -11,7 +12,11 @@ const TopBarRusme = ({ resume }) => {
           <span className="birthday">Birthday - {resume?.birthday}</span>
         </div>
         <div className="image">
-          <img src={imgResume} alt="" />
+          {resume?.picture ? (
+            <img src={PF + resume.picture} />
+          ) : (
+            <img src={imgResume} alt="" />
+          )}
         </div>
       </div>
     </div>

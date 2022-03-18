@@ -16,6 +16,29 @@ const RightBarResume = ({ resume, setClassName }) => {
 
   return (
     <div className="right-bar-resume">
+      <div className="item projects">
+        <h3>Link My Works</h3>
+        <span className="text">{resume?.url}</span>
+      </div>
+
+      <div className="item work-before">
+        <h3> Work Before</h3>
+        <span className="text">{resume?.workBefore}</span>
+      </div>
+
+      <div className="item about-you">
+        <h3>About My</h3>
+        <span className="text">{resume?.aboutYou}</span>
+      </div>
+
+      <div className="item contact-me">
+        <h3>Contact My</h3>
+        <div className="contact">
+          <span>Email : {resume?.email}</span>
+          <span>Number : {resume?.number}</span>
+        </div>
+      </div>
+
       <div className="colors">
         <div
           className="color mix"
@@ -30,26 +53,6 @@ const RightBarResume = ({ resume, setClassName }) => {
           onClick={() => handleChangeColoe("black")}
         ></div>
       </div>
-      {resume?.aboutYou && (
-        <div className="item about-you">
-          <h3>About You</h3>
-          <span className="text">{resume.aboutYou}</span>
-        </div>
-      )}
-
-      {resume?.workBefore && (
-        <div className="item work-before">
-          <h3> work before?</h3>
-          <span className="text">{resume.workBefore}</span>
-        </div>
-      )}
-
-      {resume?.projects && (
-        <div className="item projects">
-          <h3>Url Projects</h3>
-          <span className="text">{resume.projects}</span>
-        </div>
-      )}
     </div>
   );
 };

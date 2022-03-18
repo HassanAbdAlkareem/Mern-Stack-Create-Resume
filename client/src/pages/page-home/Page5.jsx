@@ -1,31 +1,35 @@
-import React, { useContext } from "react";
-import FormatData from "./FormatData";
+import FormatData from "./FormatData.jsx";
 import { ArrowBack } from "@material-ui/icons";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createResume } from "../redux/resumeSlice";
-import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { createResume } from "../../redux/resumeSlice";
+import { Link } from "react-router-dom";
 
 const Page5 = ({ handleChange, previousPage, infoResume }) => {
-  const [error, setError] = useState(null);
+  const [errorSomeThingRequired, setErrorSomeThingRequired] = useState(null);
   const dispatch = useDispatch();
+  const { error: errorFromApi } = useSelector((state) => state.resume);
   //
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+    setErrorSomeThingRequired(false);
     const data = FormatData(infoResume);
     if (data !== "error") {
       dispatch(createResume(data));
-      setError(false);
+      setErrorSomeThingRequired(false);
+    } else if (errorFromApi) {
+      setErrorSomeThingRequired(true);
     } else {
-      setError(true);
+      setErrorSomeThingRequired(true);
     }
   };
+
   //
   return (
     <div className="page">
       <div className="wrapper">
-        <form onSubmit={handleClick} action="">
+        <form encType="multipart/form-data" onSubmit={handleClick}>
           <div className="item">
             <label>Email *</label>
             <input
@@ -54,20 +58,27 @@ const Page5 = ({ handleChange, previousPage, infoResume }) => {
             <button className="submit" type="submit">
               Finish
             </button>
-            {error === false && (
+
+            {errorSomeThingRequired === false && errorFromApi === false && (
               <Link
                 style={{ textDecoration: "none" }}
-                to={{ pathname: "/resume", state: infoResume.fullName }}
+                to={{ pathname: "/resume", state: infoResume }}
               >
                 Go
               </Link>
             )}
           </div>
         </form>
-        <p className={error ? "error-format active" : "error-format"}>
-          Something is required but left blank. Please make sure to enter all
-          the required data !
-        </p>
+
+        {errorSomeThingRequired && (
+          <p className="error-format">
+            Something is required but left blank. Please make sure to enter all
+            the required data !
+          </p>
+        )}
+        {errorFromApi && (
+          <p className="error-format">Something is error from server</p>
+        )}
       </div>
     </div>
   );
