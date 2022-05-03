@@ -7,8 +7,6 @@ const app = express();
 // middle ware
 app.use(express.json());
 app.use(cors());
-dotenv.config();
-app.use(express.urlencoded({ extended: true }));
 
 mongoose
   .connect(
